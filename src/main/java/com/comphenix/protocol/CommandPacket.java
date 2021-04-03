@@ -331,16 +331,10 @@ class CommandPacket extends CommandBase {
 		return new PacketListener() {
 			@Override
 			public void onPacketSending(PacketEvent event) {
-				if (filter.filterEvent(event)) {
-					printInformation(event);
-				}
 			}
 			
 			@Override
 			public void onPacketReceiving(PacketEvent event) {
-				if (filter.filterEvent(event)) {
-					printInformation(event);
-				}
 			}
 			
 			private void printInformation(PacketEvent event) {

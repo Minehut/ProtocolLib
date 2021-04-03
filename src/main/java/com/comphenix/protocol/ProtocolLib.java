@@ -239,11 +239,8 @@ public class ProtocolLib extends JavaPlugin {
 				case PROTOCOL:
 					commandProtocol = new CommandProtocol(reporter, this, updater, config);
 					break;
-				case FILTER:
-					commandFilter = new CommandFilter(reporter, this, config);
-					break;
 				case PACKET:
-					commandPacket = new CommandPacket(reporter, this, logger, commandFilter, protocolManager);
+					commandPacket = new CommandPacket(reporter, this, logger, null, protocolManager);
 					break;
 				case LOGGING:
 					packetLogging = new PacketLogging(this, protocolManager);
@@ -380,7 +377,6 @@ public class ProtocolLib extends JavaPlugin {
 			// Set up command handlers
 			registerCommand(CommandProtocol.NAME, commandProtocol);
 			registerCommand(CommandPacket.NAME, commandPacket);
-			registerCommand(CommandFilter.NAME, commandFilter);
 			registerCommand(PacketLogging.NAME, packetLogging);
 
 			// Player login and logout events
